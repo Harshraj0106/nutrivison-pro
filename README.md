@@ -1,6 +1,7 @@
 # NutriVision Pro 🥗📸
 
 > AI-powered nutrition analysis platform with food recognition, meal planning, and smart dietary assistance using Google Gemini AI.
+> - vercel:https://nutrivison-pro.vercel.app/
 
 ---
 
@@ -302,30 +303,29 @@ Nearby Food Suggestions Displayed
 
 Add screenshots here.
 
-```markdown
-![Login Page] <img width="1060" height="578" alt="Screenshot 2026-05-16 152409" src="https://github.com/user-attachments/assets/ac0b0b38-4b31-44a3-a66c-be55d78d555d" />
+ <img width="1060" height="578" alt="Screenshot 2026-05-16 152409" src="https://github.com/user-attachments/assets/ac0b0b38-4b31-44a3-a66c-be55d78d555d" />
 
 
-![Dashboard]<img width="754" height="812" alt="Screenshot 2026-05-16 152343" src="https://github.com/user-attachments/assets/3911e8d1-e302-4e39-86ad-41b4eedbde3b" />
+<img width="754" height="812" alt="Screenshot 2026-05-16 152343" src="https://github.com/user-attachments/assets/3911e8d1-e302-4e39-86ad-41b4eedbde3b" />
 
 
-![Food Analyzer](screenshots/analyzer.png)<img width="1028" height="896" alt="Screenshot 2026-05-16 151933" src="https://github.com/user-attachments/assets/327c8c1b-16d7-4c7e-81bb-0bbaf965da19" />
+(screenshots/analyzer.png)<img width="1028" height="896" alt="Screenshot 2026-05-16 151933" src="https://github.com/user-attachments/assets/327c8c1b-16d7-4c7e-81bb-0bbaf965da19" />
 <img width="1013" height="905" alt="Screenshot 2026-05-16 151948" src="https://github.com/user-attachments/assets/b7848698-a7bc-4837-be09-bfa135f8ac70" />
 
 
 
-![Meal Planner]<img width="1036" height="892" alt="Screenshot 2026-05-16 152058" src="https://github.com/user-attachments/assets/360fbd0f-d94f-4282-a613-25ffa9e520c7" />
+<img width="1036" height="892" alt="Screenshot 2026-05-16 152058" src="https://github.com/user-attachments/assets/360fbd0f-d94f-4282-a613-25ffa9e520c7" />
 
 
-![Food Search]<img width="1027" height="887" alt="Screenshot 2026-05-16 152148" src="https://github.com/user-attachments/assets/ed7f5dbc-12c4-47cc-9d62-7ba4ab2dd83b" />
+<img width="1027" height="887" alt="Screenshot 2026-05-16 152148" src="https://github.com/user-attachments/assets/ed7f5dbc-12c4-47cc-9d62-7ba4ab2dd83b" />
 
 
-![Assistant]<img width="1008" height="745" alt="Screenshot 2026-05-16 152253" src="https://github.com/user-attachments/assets/43010e98-0f48-4889-828f-9c0710a2b63a" />
+<img width="1008" height="745" alt="Screenshot 2026-05-16 152253" src="https://github.com/user-attachments/assets/43010e98-0f48-4889-828f-9c0710a2b63a" />
 
 
-![History]<img width="992" height="514" alt="Screenshot 2026-05-16 152316" src="https://github.com/user-attachments/assets/05cfbfdb-5307-4906-98cd-f5b0fb7119f5" />
+<img width="992" height="514" alt="Screenshot 2026-05-16 152316" src="https://github.com/user-attachments/assets/05cfbfdb-5307-4906-98cd-f5b0fb7119f5" />
 
-```
+
 
 ---
 

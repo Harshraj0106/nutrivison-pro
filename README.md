@@ -1,710 +1,401 @@
-# NutriVision Pro - AI-Powered Food Analyzer
+# NutriVision Pro 🥗📸
 
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-2.0+-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Google AI](https://img.shields.io/badge/Google%20Gemini-AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-Cloud-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-**Advanced AI-powered nutrition analysis and meal planning platform**
-
-[Features](#features) • [Demo](#demo) • [Installation](#installation) • [Usage](#usage) • [API](#api) • [Contributing](#contributing)
-
-</div>
+> AI-powered nutrition analysis platform with food recognition, meal planning, and smart dietary assistance using Google Gemini AI.
 
 ---
 
-## Table of Contents
+## 🌟 Overview
 
-- [Overview](#overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+NutriVision Pro is an intelligent nutrition and diet management platform that helps users make healthier food decisions through AI-powered analysis.
+
+The application allows users to:
+- Analyze food using images
+- Get detailed nutritional information
+- Generate personalized meal plans
+- Search food nutrition instantly
+- Chat with an AI nutrition assistant
+- Track food analysis history
+
+Built using **Flask**, **MongoDB Atlas**, and **Google Gemini 2.5 Flash**, the project combines AI, nutrition science, and modern web technologies into one smart platform.
 
 ---
 
-## Overview
+# 🚀 Features
 
-NutriVision Pro is a cutting-edge web application that leverages Google's Gemini AI to provide comprehensive nutritional analysis of food items through image recognition. Simply upload a photo of your food, and get instant, detailed nutritional information including calories, macronutrients, vitamins, health benefits, and more.
+## 🔐 Authentication System
 
-### Key Highlights
-
-- **AI-Powered Analysis**: Utilizes Google Gemini 2.5 Flash for accurate food identification
-- **Location-Based Discovery**: Find nearby shops, restaurants, and hotels serving your food item
-- **Comprehensive Data**: Provides detailed nutritional breakdown per 100g
-- **Health Insights**: Offers health benefits, allergen information, and dietary classifications
-- **Cloud Storage**: Stores analysis history in MongoDB for future reference
-- **Modern UI/UX**: Beautiful, responsive interface with smooth animations
-- **Real-time Processing**: Fast image upload and analysis with progress tracking
+Secure user authentication system with:
+- User Registration
+- Login & Logout
+- Session Management
+- Personalized User Dashboard
 
 ---
 
-## Features
+## 📷 AI Food Analyzer
 
-### Core Functionality
+Upload or capture food images and receive instant nutritional analysis.
 
-#### Food Analysis
-- **Image Recognition**: Upload food images in JPG, PNG, GIF, BMP, or WebP formats
-- **Nutritional Breakdown**: Complete macronutrient and micronutrient information
-- **Calorie Calculation**: Accurate calorie estimation per 100g
-- **Vitamin & Mineral Content**: Detailed vitamin and mineral analysis
+### Features
+- AI-powered food recognition
+- Nutritional breakdown
+- Calorie estimation
+- Macronutrient analysis
+- Nearby food place recommendations
 
-#### 🆕 Location-Based Features
-- **Geolocation Access**: Automatic location permission request on page load
-- **Nearby Places Discovery**: Find 4-5 shops, restaurants, hotels, and markets nearby
-- **AI-Powered Suggestions**: Gemini generates intelligent place recommendations
-- **Detailed Place Information**: Name, type, description, and distance for each location
-- **Smart Fallback**: App works perfectly even without location access
-
-#### Health Information
-- **Health Benefits**: Key health advantages of the identified food
-- **Allergen Detection**: Identification of potential allergens
-- **Dietary Classifications**: Vegan, Vegetarian, Gluten-free, etc.
-- **Glycemic Index**: Low/Medium/High classification
-- **Storage Tips**: Recommendations for proper food storage
-- **Preparation Suggestions**: Cooking and preparation methods
-
-#### User Experience
-- **Drag & Drop Upload**: Intuitive file upload interface
-- **Progress Tracking**: Real-time upload and analysis progress
-- **Location Status Display**: Clear feedback on location permission status
-- **Analysis History**: View past food analyses (up to 50 recent items)
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
-- **Error Handling**: Comprehensive error messages and validation
-- **Privacy-First**: Location data only stored with user permission
-
-### Planned Features
-
-- **Google Places Integration**: Real business listings with ratings and reviews
-- **Interactive Maps**: Embedded maps showing nearby places with pins
-- **Meal Planner**: Create personalized weekly meal plans
-- **Nutrition Chatbot**: AI assistant for nutrition queries
-- **Diet Expert Consultation**: Professional dietary advice
-- **Export Functionality**: PDF/CSV export of analysis results
-- **User Authentication**: Personalized user accounts
-- **Dark Mode**: Toggle between light and dark themes
+### Nutritional Information Includes
+- Calories
+- Protein
+- Carbohydrates
+- Fat
+- Fiber
+- Vitamins & minerals (if available)
 
 ---
 
-## Technology Stack
+## 🍽 Personalized Meal Planner
 
-### Backend
-- **Framework**: Flask 2.0+
-- **Language**: Python 3.8+
-- **AI Model**: Google Gemini 2.5 Flash
-- **Database**: MongoDB (Cloud)
-- **Image Processing**: Pillow (PIL)
-- **Environment**: python-dotenv
+Generate meal plans tailored to user goals and dietary preferences.
 
-### Frontend
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with animations
-- **JavaScript**: Vanilla JS (ES6+)
-- **Icons**: Font Awesome 6.4.0
-- **Fonts**: Google Fonts (Poppins)
+### User Inputs
+- Goal
+  - Weight Loss
+  - Maintenance
+  - Muscle Gain
 
-### Infrastructure
-- **Server**: Flask Development Server (Development)
-- **Database**: MongoDB Atlas (Cloud)
-- **API**: Google Generative AI API
-- **Storage**: MongoDB GridFS (Base64 images)
+- Diet Type
+  - Balanced
+  - Vegetarian
+  - Vegan
+  - High Protein
 
----
+- Meals Per Day
+- Daily Calorie Target
+- Allergies / Restrictions
+- Preferred Cuisines
 
-## Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                      Client Browser                          │
-│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐   │
-│  │  Landing Page │  │   Dashboard   │  │   404 Page    │   │
-│  │  (index.html) │  │ (dashboard.   │  │  (404.html)   │   │
-│  │               │  │     html)     │  │               │   │
-│  └───────┬───────┘  └───────┬───────┘  └───────────────┘   │
-└──────────┼──────────────────┼──────────────────────────────┘
-           │                  │
-           │ HTTP Request     │ AJAX Request
-           │                  │
-┌──────────▼──────────────────▼──────────────────────────────┐
-│                    Flask Application                         │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │              Route Handlers (app.py)                   │ │
-│  │  • / (index)    • /dashboard    • /upload             │ │
-│  │  • /history     • /analysis     • /delete             │ │
-│  └────────┬───────────────────────┬───────────────────────┘ │
-│           │                       │                          │
-│  ┌────────▼─────────┐    ┌───────▼──────────┐              │
-│  │ Image Processing │    │  Data Processing │              │
-│  │  • Base64 encode │    │  • JSON parsing  │              │
-│  │  • Validation    │    │  • Sanitization  │              │
-│  └────────┬─────────┘    └──────────────────┘              │
-└───────────┼──────────────────────────────────────────────────┘
-            │
-            │ API Call
-            │
-┌───────────▼──────────────────────────────────────────────────┐
-│              Google Gemini AI (gemini-2.5-flash)             │
-│  • Image Analysis        • Nutritional Data Extraction       │
-│  • Food Identification   • Health Information Generation     │
-└───────────┬──────────────────────────────────────────────────┘
-            │
-            │ Store/Retrieve
-            │
-┌───────────▼──────────────────────────────────────────────────┐
-│                    MongoDB Atlas (Cloud)                      │
-│  • Food Analysis Records    • Base64 Image Storage           │
-│  • User Sessions            • Timestamps                     │
-└──────────────────────────────────────────────────────────────┘
-```
+### Output
+- Breakfast
+- Lunch
+- Dinner
+- Snacks
+- Daily calorie distribution
+- Personalized recommendations
 
 ---
 
-## Installation
+## 🔎 Food Search Feature
 
-### Prerequisites
+Search nutritional information for any food item instantly.
 
-- Python 3.8 or higher
-- MongoDB Atlas account (or local MongoDB instance)
-- Google Gemini API key
-- Git (optional)
+### Inputs
+- Food Name
+- Serving Size (grams)
 
-### Step 1: Clone the Repository
+### Results
+- Calories
+- Protein
+- Carbohydrates
+- Fat
+- Fiber
+
+---
+
+## 🤖 Gemini Nutrition Assistant
+
+AI-powered chatbot built using Google Gemini 2.5 Flash.
+
+### Capabilities
+- Nutrition guidance
+- Healthy meal suggestions
+- Macro planning
+- Healthier food alternatives
+- Dietary education
+- Personalized food advice
+
+### Example Questions
+- “What should I eat for muscle gain?”
+- “Healthy Indian breakfast ideas?”
+- “How much protein do I need daily?”
+- “Best foods for weight loss?”
+
+---
+
+## 🕘 Analysis History
+
+Store and manage previous food analyses.
+
+### Features
+- View previous scans
+- Check nutrition breakdowns
+- Delete old entries
+- User-specific history management
+
+---
+
+# 🛠 Technology Stack
+
+## Backend
+
+| Technology | Purpose |
+|---|---|
+| Python 3.8+ | Core Language |
+| Flask 2.0+ | Backend Framework |
+| Google Gemini 2.5 Flash | AI Processing |
+| MongoDB Atlas | Cloud Database |
+| Pillow (PIL) | Image Processing |
+| python-dotenv | Environment Variables |
+
+---
+
+## Frontend
+
+| Technology | Purpose |
+|---|---|
+| HTML5 | Structure |
+| CSS3 | Styling |
+| JavaScript (ES6+) | Interactivity |
+| Font Awesome 6.4 | Icons |
+| Google Fonts (Poppins) | Typography |
+
+---
+
+## Infrastructure
+
+| Service | Purpose |
+|---|---|
+| Flask Development Server | Backend Hosting |
+| MongoDB Atlas | Cloud Storage |
+| Google Generative AI API | AI Integration |
+| GridFS/Base64 | Image Storage |
+
+---
+
+# 📂 Project Structure
 
 ```bash
-git clone https://github.com/pranavsoftware/nutrivision-pro.git
-cd nutrivision-pro
+nutrivision-pro/
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│   ├── uploads/
+│   └── images/
+│
+├── templates/
+│   ├── index.html
+│   ├── login.html
+│   ├── signup.html
+│   ├── dashboard.html
+│   └── ...
+│
+├── routes/
+├── models/
+├── utils/
+├── app.py
+├── requirements.txt
+├── .env
+└── README.md
 ```
 
-### Step 2: Create Virtual Environment
+---
 
-**Windows:**
+# ⚙️ Installation Guide
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/Harshraj0106/nutrivison-pro.git
+
+cd nutrivison-pro
+```
+
+---
+
+## 2️⃣ Create Virtual Environment
+
+### Windows
+
 ```bash
 python -m venv venv
+
 venv\Scripts\activate
 ```
 
-**macOS/Linux:**
+### Linux / macOS
+
 ```bash
 python3 -m venv venv
+
 source venv/bin/activate
 ```
 
-### Step 3: Install Dependencies
+---
+
+## 3️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Set Up Environment Variables
+---
 
-Create a `.env` file in the project root:
+## 4️⃣ Configure Environment Variables
+
+Create a `.env` file in the root directory.
 
 ```env
-# Flask Configuration
-FLASK_SECRET_KEY=your-secret-key-change-this-in-production
-FLASK_DEBUG=True
-FLASK_HOST=0.0.0.0
-FLASK_PORT=5000
+MONGO_URI=your_mongodb_connection_string
 
-# Google Gemini AI Configuration
-GEMINI_API_KEY=your-gemini-api-key-here
+GEMINI_API_KEY=your_google_gemini_api_key
 
-# MongoDB Configuration
-MONGODB_URI=your-mongodb-connection-string
-DATABASE_NAME=food_analyzer
-COLLECTION_NAME=food_items
-
-# File Upload Configuration
-MAX_CONTENT_LENGTH=16777216
+SECRET_KEY=your_secret_key
 ```
 
-### Step 5: Get API Keys
+---
 
-#### Google Gemini API Key:
-1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Sign in with your Google account
-3. Create a new API key
-4. Copy the key to your `.env` file
-
-#### MongoDB Atlas:
-1. Visit [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a free cluster
-3. Create a database user
-4. Whitelist your IP address
-5. Get the connection string
-6. Replace `<password>` with your database user password
-7. Add the connection string to your `.env` file
-
-### Step 6: Run the Application
+## 5️⃣ Run the Application
 
 ```bash
 python app.py
 ```
 
-Visit `http://localhost:5000` in your browser.
-
----
-
-## Configuration
-
-### Environment Variables
-
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `FLASK_SECRET_KEY` | Secret key for Flask sessions | - | Yes |
-| `FLASK_DEBUG` | Enable debug mode | `False` | No |
-| `FLASK_HOST` | Host address | `0.0.0.0` | No |
-| `FLASK_PORT` | Port number | `5000` | No |
-| `GEMINI_API_KEY` | Google Gemini API key | - | Yes |
-| `MONGODB_URI` | MongoDB connection string | - | Yes |
-| `DATABASE_NAME` | MongoDB database name | `food_analyzer` | No |
-| `COLLECTION_NAME` | MongoDB collection name | `food_items` | No |
-| `MAX_CONTENT_LENGTH` | Max upload size (bytes) | `16777216` (16MB) | No |
-
-### Supported File Formats
-
-- JPEG/JPG
-- PNG
-- GIF
-- BMP
-- WebP
-
-Maximum file size: 16MB
-
----
-
-## Usage
-
-### Basic Workflow
-
-1. **Launch Application**: Start the Flask server
-2. **Access Landing Page**: Navigate to `http://localhost:5000`
-3. **Click "Start Scanning"**: Opens the food analyzer dashboard
-4. **Upload Image**: 
-   - Click "Choose File" to select an image
-   - Or drag and drop an image onto the upload area
-5. **Wait for Analysis**: AI processes the image (typically 3-5 seconds)
-6. **View Results**: Comprehensive nutritional information displays
-7. **Analyze More**: Click "Analyze Another Image" to continue
-
-### Advanced Features
-
-#### View Analysis History
-```
-GET /history
-```
-Returns the last 50 food analyses with timestamps.
-
-#### Get Specific Analysis
-```
-GET /analysis/<analysis_id>
-```
-Retrieves a specific analysis by MongoDB ObjectId.
-
-#### Delete Analysis
-```
-DELETE /delete/<analysis_id>
-```
-Removes a specific analysis from the database.
-
----
-
-## API Documentation
-
-### Endpoints
-
-#### `POST /upload`
-
-Upload and analyze a food image with optional location data.
-
-**Request:**
-- Content-Type: `multipart/form-data`
-- Body: 
-  - `file` (image file) - Required
-  - `latitude` (float) - Optional
-  - `longitude` (float) - Optional
-
-**Response:**
-```json
-{
-  "success": true,
-  "food_data": {
-    "food_name": "Pizza",
-    "category": "Fast Food",
-    "calories_per_100g": "266",
-    "nutritional_info": {
-      "protein": "11",
-      "carbohydrates": "33",
-      "fat": "10",
-      "fiber": "2.5",
-      "sugar": "3.5",
-      "sodium": "598"
-    },
-    "vitamins_minerals": { ... },
-    "health_benefits": [ ... ],
-    "allergens": ["Gluten", "Dairy"],
-    "storage_tips": "...",
-    "preparation_suggestions": [ ... ],
-    "serving_size": "1 slice (107g)",
-    "glycemic_index": "Medium",
-    "dietary_restrictions": ["Vegetarian"],
-    "nearby_places": [
-      {
-        "name": "Local Pizzerias",
-        "type": "Restaurant",
-        "description": "Traditional Italian restaurants serving authentic pizza",
-        "distance": "0.5-2 miles"
-      },
-      {
-        "name": "Pizza Hut / Domino's",
-        "type": "Fast Food Chain",
-        "description": "Popular pizza delivery chains",
-        "distance": "1-3 miles"
-      }
-    ]
-  },
-  "image_base64": "data:image/jpeg;base64,...",
-  "original_filename": "pizza.jpg"
-}
-```
-
-#### `GET /history`
-
-Retrieve analysis history.
-
-**Response:**
-```json
-{
-  "success": true,
-  "analyses": [
-    {
-      "_id": "...",
-      "timestamp": "2025-10-15 11:30:00",
-      "original_filename": "apple.jpg",
-      "food_data": { ... },
-      "image_preview": "data:image/jpeg;base64,..."
-    }
-  ]
-}
-```
-
-#### `GET /analysis/<analysis_id>`
-
-Get specific analysis by ID.
-
-**Response:**
-```json
-{
-  "success": true,
-  "analysis": { ... }
-}
-```
-
-#### `DELETE /delete/<analysis_id>`
-
-Delete specific analysis.
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Analysis deleted successfully"
-}
-```
-
-### Error Responses
-
-```json
-{
-  "success": false,
-  "error": "Error message description"
-}
-```
-
-**Common Error Codes:**
-- `400`: Bad Request (no file, invalid format)
-- `404`: Not Found (analysis not found)
-- `413`: File Too Large (exceeds 16MB)
-- `500`: Internal Server Error
-
----
-
-## Project Structure
-
-```
-nutrivision-pro/
-├── app.py                          # Main Flask application
-├── requirements.txt                # Python dependencies
-├── .env                           # Environment variables (not in repo)
-├── .env.example                   # Example environment file
-├── .gitignore                     # Git ignore rules
-├── README.md                      # This file
-├── LOCATION_FEATURE.md            # Location feature documentation
-├── IMPLEMENTATION_SUMMARY.md      # Implementation details
-├── test_location_feature.py       # Feature verification script
-│
-├── static/                        # Static assets
-│   ├── css/
-│   │   ├── dashboard.css          # Landing page styles
-│   │   └── analyzer.css           # Analyzer page styles (with location UI)
-│   └── js/
-│       └── dashboard.js           # Frontend JavaScript
-│
-├── templates/                     # HTML templates
-│   ├── index.html                 # Landing page
-│   ├── dashboard.html             # Food analyzer interface (with location)
-│   └── 404.html                   # Error page
-│
-└── uploads/                       # Temporary upload directory
-```
-
----
-
-## Screenshots
-
-### Landing Page
-![Landing Page](food%20analyzer/Sample%20result%201.png)
-
-### Food Analyzer Dashboard
-![Food Analyzer Dashboard](food%20analyzer/Sample%20result%202.png)
-
-### Analysis Results
-![Analysis Results](food%20analyzer/Sample%20result%203.png)
-
-
----
-
-## Deployment
-
-### Production Deployment
-
-#### 1. Using Gunicorn (Recommended)
+Server will start at:
 
 ```bash
-pip install gunicorn
-gunicorn -w 4 -b 0.0.0.0:5000 app:app
-```
-
-#### 2. Using Docker
-
-Create `Dockerfile`:
-
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
-```
-
-Build and run:
-
-```bash
-docker build -t nutrivision-pro .
-docker run -p 5000:5000 --env-file .env nutrivision-pro
-```
-
-#### 3. Using Heroku
-
-```bash
-heroku create nutrivision-pro
-heroku config:set GEMINI_API_KEY=your-key
-heroku config:set MONGODB_URI=your-uri
-git push heroku main
-```
-
-### Environment Considerations
-
-- Set `FLASK_DEBUG=False` in production
-- Use strong `FLASK_SECRET_KEY`
-- Enable HTTPS
-- Implement rate limiting
-- Add authentication for sensitive endpoints
-- Configure CORS properly
-- Set up monitoring and logging
-
----
-
-## Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-### How to Contribute
-
-1. **Fork the Repository**
-   ```bash
-   git clone https://github.com/pranavsoftware/nutrivision-pro.git
-   ```
-
-2. **Create a Branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-3. **Make Changes**
-   - Write clean, documented code
-   - Follow PEP 8 style guide for Python
-   - Add comments where necessary
-
-4. **Test Your Changes**
-   ```bash
-   python app.py
-   # Test all functionality
-   ```
-
-5. **Commit Changes**
-   ```bash
-   git add .
-   git commit -m "Add: your feature description"
-   ```
-
-6. **Push to GitHub**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-7. **Create Pull Request**
-   - Go to GitHub
-   - Click "New Pull Request"
-   - Describe your changes
-
-### Code of Conduct
-
-- Be respectful and inclusive
-- Provide constructive feedback
-- Focus on what is best for the community
-- Show empathy towards other community members
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2025 Pranav Rayban
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+http://127.0.0.1:5000
 ```
 
 ---
 
-## Contact
+# 🧠 How It Works
 
-### Developer
+## Food Analysis Workflow
 
-**Pranav Rayban**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pranavrayban/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pranavsoftware)
-
-### Project Links
-
-- **Repository**: [https://github.com/pranavsoftware/nutrivision-pro](https://github.com/pranavsoftware/nutrivision-pro)
-- **Issues**: [https://github.com/pranavsoftware/nutrivision-pro/issues](https://github.com/pranavsoftware/nutrivision-pro/issues)
-- **Discussions**: [https://github.com/pranavsoftware/nutrivision-pro/discussions](https://github.com/pranavsoftware/nutrivision-pro/discussions)
-
----
-
-## Acknowledgments
-
-- **Google Gemini AI**: For powerful image recognition and analysis
-- **MongoDB**: For reliable cloud database services
-- **Flask**: For the lightweight and flexible web framework
-- **Font Awesome**: For beautiful icons
-- **Google Fonts**: For the Poppins font family
+```text
+User Uploads Food Image
+           ↓
+Image Processed with PIL
+           ↓
+Gemini AI Identifies Food
+           ↓
+Nutrition Data Generated
+           ↓
+Results Stored in MongoDB
+           ↓
+Nearby Food Suggestions Displayed
+```
 
 ---
 
-## Changelog
+# 🔒 Security Features
 
-### Version 1.1.0 (2025-10-28)
-
-#### 🆕 Added - Location-Based Features
-- **Geolocation Integration**: Automatic location permission request on page load
-- **Nearby Places Discovery**: AI-powered suggestions for 4-5 nearby establishments
-- **Smart Place Recommendations**: Contextual suggestions based on food type and location
-- **Location Data Storage**: Optional storage of user coordinates in MongoDB
-- **Enhanced Results Display**: New "Where to Find" section with styled location cards
-- **Privacy Controls**: Graceful degradation when location is denied
-
-#### Technical Improvements
-- New `get_nearby_places()` function using Gemini API
-- Enhanced `/upload` endpoint to accept latitude/longitude
-- Updated `save_to_mongodb()` to store location data
-- JavaScript geolocation API integration
-- New CSS warning style for location status messages
-- Comprehensive test suite (`test_location_feature.py`)
-
-#### Documentation
-- Added `LOCATION_FEATURE.md` - Detailed feature documentation
-- Added `IMPLEMENTATION_SUMMARY.md` - Technical implementation guide
-- Updated API documentation with location parameters
-
-### Version 1.0.0 (2025-10-15)
-
-#### Added
-- Initial release
-- AI-powered food image analysis
-- Comprehensive nutritional breakdown
-- MongoDB cloud storage integration
-- Responsive web interface
-- SVG-based icons and animations
-- Error handling and validation
-- Analysis history functionality
-
-#### Features
-- Upload food images (JPG, PNG, GIF, BMP, WebP)
-- Real-time AI analysis with Gemini 2.5 Flash
-- Detailed nutritional information
-- Health benefits and allergen detection
-- Storage tips and preparation suggestions
-- Mobile-responsive design
-- Custom 404 error page
+- Secure authentication system
+- Protected environment variables
+- MongoDB cloud security
+- User-specific data storage
+- Session management
 
 ---
 
-<div align="center">
+# 📸 Screenshots
 
-**Made with dedication by [Pranav Rayban](https://www.linkedin.com/in/pranavrayban/)**
+Add screenshots here.
 
-⭐ Star this repository if you find it helpful!
+```markdown
+![Login Page] <img width="1060" height="578" alt="Screenshot 2026-05-16 152409" src="https://github.com/user-attachments/assets/ac0b0b38-4b31-44a3-a66c-be55d78d555d" />
 
-</div>
+
+![Dashboard]<img width="754" height="812" alt="Screenshot 2026-05-16 152343" src="https://github.com/user-attachments/assets/3911e8d1-e302-4e39-86ad-41b4eedbde3b" />
+
+
+![Food Analyzer](screenshots/analyzer.png)<img width="1028" height="896" alt="Screenshot 2026-05-16 151933" src="https://github.com/user-attachments/assets/327c8c1b-16d7-4c7e-81bb-0bbaf965da19" />
+<img width="1013" height="905" alt="Screenshot 2026-05-16 151948" src="https://github.com/user-attachments/assets/b7848698-a7bc-4837-be09-bfa135f8ac70" />
+
+
+
+![Meal Planner]<img width="1036" height="892" alt="Screenshot 2026-05-16 152058" src="https://github.com/user-attachments/assets/360fbd0f-d94f-4282-a613-25ffa9e520c7" />
+
+
+![Food Search]<img width="1027" height="887" alt="Screenshot 2026-05-16 152148" src="https://github.com/user-attachments/assets/ed7f5dbc-12c4-47cc-9d62-7ba4ab2dd83b" />
+
+
+![Assistant]<img width="1008" height="745" alt="Screenshot 2026-05-16 152253" src="https://github.com/user-attachments/assets/43010e98-0f48-4889-828f-9c0710a2b63a" />
+
+
+![History]<img width="992" height="514" alt="Screenshot 2026-05-16 152316" src="https://github.com/user-attachments/assets/05cfbfdb-5307-4906-98cd-f5b0fb7119f5" />
+
+```
+
+---
+
+# 🎯 Future Enhancements
+
+- Real-time camera food detection
+- Barcode scanner integration
+- Mobile application
+- AI workout recommendations
+- Fitness tracker integration
+- Multi-language support
+- Dark mode support
+
+---
+
+# 🧪 Example Use Cases
+
+### Weight Loss
+Generate calorie-controlled meal plans with balanced nutrition.
+
+### Muscle Gain
+Receive high-protein meal recommendations and macro guidance.
+
+### Nutrition Tracking
+Track meals and revisit previous analyses.
+
+### Smart Dietary Guidance
+Get AI-powered suggestions for healthier eating.
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+### Steps
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to your branch
+5. Create a Pull Request
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+## Harshraj
+
+- GitHub: https://github.com/Harshraj0106
+- Project Repository: https://github.com/Harshraj0106/nutrivison-pro
+- vercel:https://nutrivison-pro.vercel.app/
+
+---
+
+# ⭐ Support
+
+If you like this project:
+
+⭐ Star the repository  
+🍴 Fork the project  
+🛠 Contribute improvements
+
+---
+
+# 🥗 NutriVision Pro
+
+### *“Transforming food into intelligent nutritional insights with AI.”*
